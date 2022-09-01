@@ -59,6 +59,8 @@ export const ActionButton = styled.button`
 	border: none;
 
 	font-size: 1.5rem;
+
+	cursor: pointer;
 `
 
 export const ActionDivider = styled.div`
