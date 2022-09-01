@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-	height: 400px;
+	min-height: 400px;
 
 	border: 1px solid #8b8b8b;
 
@@ -9,14 +9,14 @@ export const Container = styled.div`
 `
 
 export const Image = styled.img`
-	height: 50%;
+	height: 250px;
 	width: 100%;
 
 	background-color: #dadada;
 `
 
 export const Body = styled.div`
-	height: 35%;
+	height: calc(100% - 54px - 250px);
 	width: 100%;
 
 	padding: 10px 20px;
@@ -28,10 +28,14 @@ export const Body = styled.div`
 	flex-direction: column;
 `
 
-export const Name = styled.h3``
+export const Name = styled.h3`
+	word-break: break-all;
+`
 
 export const BodyText = styled.p`
 	color: #7e7e7e;
+
+	word-break: break-all;
 `
 
 export const BodyIcon = styled.span`
@@ -40,7 +44,7 @@ export const BodyIcon = styled.span`
 `
 
 export const Actions = styled.div`
-	height: 14%;
+	height: 50px;
 	width: 100%;
 
 	display: flex;
