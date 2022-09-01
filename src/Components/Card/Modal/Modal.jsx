@@ -38,12 +38,6 @@ const Modal = ({ user }, ref) => {
 			SetUsers(prev =>
 				prev.map(item => {
 					if (item.id === user.id) {
-						console.log({
-							email: Email,
-							phone: Phone,
-							website: Website,
-							username: Username,
-						})
 						return {
 							...item,
 							email: Email,
