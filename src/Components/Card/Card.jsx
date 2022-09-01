@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef } from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -15,6 +15,8 @@ import {
 
 import UsersContext from '@/Contexts/Users'
 
+import Modal from '@/Components/Card/Modal/Modal'
+
 import {
 	Container,
 	Image,
@@ -29,6 +31,8 @@ import {
 
 const Card = ({ user }) => {
 	const { SetUsers } = useContext(UsersContext)
+
+	const ModalRef = useRef()
 
 	const ToggleLike = () => {
 		SetUsers(prev =>
@@ -51,48 +55,51 @@ const Card = ({ user }) => {
 	}
 
 	return (
-		<Container>
-			<Image
-				src={`https://avatars.dicebear.com/v2/avataaars/${user.username}.svg?options[mood][]=happy`}
-			/>
-			<Body>
-				<Name>{user.username}</Name>
-				<BodyText>
-					<BodyIcon>
-						<FontAwesomeIcon icon={faEnvelope} />
-					</BodyIcon>
-					{user.email}
-				</BodyText>
-				<BodyText>
-					<BodyIcon>
-						<FontAwesomeIcon icon={faPhone} />
-					</BodyIcon>
-					{user.phone}
-				</BodyText>
-				<BodyText>
-					<BodyIcon>
-						<FontAwesomeIcon icon={faGlobe} />
-					</BodyIcon>
-					{user.website}
-				</BodyText>
-			</Body>
-			<Actions>
-				<ActionButton onClick={ToggleLike}>
-					<FontAwesomeIcon
-						icon={user.isLiked ? faSolidHeart : faHeart}
-						color='#ff0000'
-					/>
-				</ActionButton>
-				<ActionDivider />
-				<ActionButton>
-					<FontAwesomeIcon icon={faPenToSquare} />
-				</ActionButton>
-				<ActionDivider />
-				<ActionButton onClick={Remove}>
-					<FontAwesomeIcon icon={faTrash} />
-				</ActionButton>
-			</Actions>
-		</Container>
+		<>
+			<Container>
+				<Image
+					src={`https://avatars.dicebear.com/v2/avataaars/${user.username}.svg?options[mood][]=happy`}
+				/>
+				<Body>
+					<Name>{user.username}</Name>
+					<BodyText>
+						<BodyIcon>
+							<FontAwesomeIcon icon={faEnvelope} />
+						</BodyIcon>
+						{user.email}
+					</BodyText>
+					<BodyText>
+						<BodyIcon>
+							<FontAwesomeIcon icon={faPhone} />
+						</BodyIcon>
+						{user.phone}
+					</BodyText>
+					<BodyText>
+						<BodyIcon>
+							<FontAwesomeIcon icon={faGlobe} />
+						</BodyIcon>
+						{user.website}
+					</BodyText>
+				</Body>
+				<Actions>
+					<ActionButton onClick={ToggleLike}>
+						<FontAwesomeIcon
+							icon={user.isLiked ? faSolidHeart : faHeart}
+							color='#ff0000'
+						/>
+					</ActionButton>
+					<ActionDivider />
+					<ActionButton onClick={() => ModalRef.current?.Open()}>
+						<FontAwesomeIcon icon={faPenToSquare} />
+					</ActionButton>
+					<ActionDivider />
+					<ActionButton onClick={Remove}>
+						<FontAwesomeIcon icon={faTrash} />
+					</ActionButton>
+				</Actions>
+			</Container>
+			<Modal user={user} ref={ModalRef} />
+		</>
 	)
 }
 
