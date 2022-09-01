@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -6,7 +6,14 @@ import {
 	faPenToSquare,
 	faEnvelope,
 } from '@fortawesome/free-regular-svg-icons'
-import { faTrash, faPhone, faGlobe } from '@fortawesome/free-solid-svg-icons'
+import {
+	faTrash,
+	faPhone,
+	faGlobe,
+	faHeart as faSolidHeart,
+} from '@fortawesome/free-solid-svg-icons'
+
+import UsersContext from '@/Contexts/Users'
 
 import {
 	Container,
@@ -21,6 +28,20 @@ import {
 } from './Styles'
 
 const Card = ({ user }) => {
+	const { SetUsers } = useContext(UsersContext)
+
+	const ToggleLike = () => {
+		SetUsers(prev =>
+			prev.map(item => {
+				if (item.id === user.id) {
+					return { ...item, isLiked: !item.isLiked }
+				}
+
+				return item
+			})
+		)
+	}
+
 	return (
 		<Container>
 			<Image
@@ -48,8 +69,11 @@ const Card = ({ user }) => {
 				</BodyText>
 			</Body>
 			<Actions>
-				<ActionButton>
-					<FontAwesomeIcon icon={faHeart} color='#ff0000' />
+				<ActionButton onClick={ToggleLike}>
+					<FontAwesomeIcon
+						icon={user.isLiked ? faSolidHeart : faHeart}
+						color='#ff0000'
+					/>
 				</ActionButton>
 				<ActionDivider />
 				<ActionButton>
