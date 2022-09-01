@@ -43,6 +43,10 @@ const Card = ({ user }) => {
 	}
 
 	const Remove = () => {
+		const confirmation = confirm(`Are you sure to delete ${user.username}`)
+
+		if (!confirmation) return
+
 		SetUsers(prev => prev.filter(item => item.id !== user.id))
 	}
 
