@@ -49,7 +49,7 @@ const Card = ({ user }) => {
 			</Body>
 			<Actions>
 				<ActionButton>
-					<FontAwesomeIcon icon={faHeart} />
+					<FontAwesomeIcon icon={faHeart} color='#ff0000' />
 				</ActionButton>
 				<ActionDivider />
 				<ActionButton>
