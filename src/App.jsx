@@ -1,18 +1,7 @@
-import React from 'react'
-
-import styled from 'styled-components'
-
-export const Button = styled.button`
-	color: red;
-`
+// import React from 'react'
 
 const App = () => {
-	return (
-		<div>
-			<div data-testid='custom-element'>heading</div>
-			<Button data-testid='button'>Test</Button>
-		</div>
-	)
+	return null
 }
 
 export default App
