@@ -16,11 +16,13 @@ const App = () => {
 
 		fetch('https://jsonplaceholder.typicode.com/users', { signal })
 			.then(response => response.json())
-			.then(data => SetUsers(data))
+			.then(data =>
+				SetUsers(data.map(item => ({ ...item, isLiked: false })))
+			)
 			.catch(console.log)
 
 		return () => controller.abort()
-	}, [])
+	}, [SetUsers])
 
 	return (
 		<Cards>
