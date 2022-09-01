@@ -42,6 +42,10 @@ const Card = ({ user }) => {
 		)
 	}
 
+	const Remove = () => {
+		SetUsers(prev => prev.filter(item => item.id !== user.id))
+	}
+
 	return (
 		<Container>
 			<Image
@@ -80,7 +84,7 @@ const Card = ({ user }) => {
 					<FontAwesomeIcon icon={faPenToSquare} />
 				</ActionButton>
 				<ActionDivider />
-				<ActionButton>
+				<ActionButton onClick={Remove}>
 					<FontAwesomeIcon icon={faTrash} />
 				</ActionButton>
 			</Actions>
