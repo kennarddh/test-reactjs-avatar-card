@@ -5,7 +5,7 @@ import Card from '@/Components/Card/Card'
 import { Cards } from '@/Styles'
 
 const App = () => {
-	const [Users, SetUsers] = useState()
+	const [Users, SetUsers] = useState([])
 
 	useEffect(() => {
 		const controller = new AbortController()
