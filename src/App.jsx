@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useContext } from 'react'
 
 import Card from '@/Components/Card/Card'
+
+import UsersContext from '@/Contexts/Users'
 
 import { Cards } from '@/Styles'
 
 const App = () => {
-	const [Users, SetUsers] = useState([])
+	const { Users, SetUsers } = useContext(UsersContext)
 
 	useEffect(() => {
 		const controller = new AbortController()
