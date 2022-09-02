@@ -47,7 +47,6 @@ module.exports = {
 				map: [['.', './src']],
 				extensions: ['.js', '.jsx', 'ts', 'tsx'],
 			},
-
 			typescript: {},
 		},
 		react: {
