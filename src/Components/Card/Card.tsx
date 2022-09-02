@@ -65,6 +65,7 @@ const Card: FC<Props> = ({ user }) => {
 			<Container>
 				<Image
 					src={`https://avatars.dicebear.com/v2/avataaars/${user.username}.svg?options[mood][]=happy`}
+					alt='Avatar'
 				/>
 				<Body>
 					<Name>{user.username}</Name>
