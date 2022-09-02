@@ -95,7 +95,11 @@ const Card: FC<Props> = ({ user }) => {
 						/>
 					</ActionButton>
 					<ActionDivider />
-					<ActionButton onClick={ModalRef.current?.Open}>
+					<ActionButton
+						onClick={() => {
+							if (ModalRef.current?.Open) ModalRef.current?.Open()
+						}}
+					>
 						<FontAwesomeIcon icon={faPenToSquare} />
 					</ActionButton>
 					<ActionDivider />
