@@ -1,4 +1,4 @@
-import React, { useContext, useRef, FC } from 'react'
+import React, { useContext, useRef, FC, RefObject } from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -15,7 +15,7 @@ import {
 
 import UsersContext, { IUser, IUsersContext } from '@/Contexts/Users/Users'
 
-import Modal from '@/Components/Card/Modal/Modal'
+import Modal, { ICardModalHandle } from '@/Components/Card/Modal/Modal'
 
 import {
 	Container,
@@ -34,7 +34,7 @@ import { Props, IToggleLike, IRemove } from './Types'
 const Card: FC<Props> = ({ user }) => {
 	const { SetUsers } = useContext<IUsersContext>(UsersContext)
 
-	const ModalRef = useRef()
+	const ModalRef = useRef<ICardModalHandle>()
 
 	const ToggleLike: IToggleLike = () => {
 		SetUsers((prev: IUser[]) =>
@@ -95,7 +95,7 @@ const Card: FC<Props> = ({ user }) => {
 						/>
 					</ActionButton>
 					<ActionDivider />
-					<ActionButton onClick={() => ModalRef.current?.Open()}>
+					<ActionButton onClick={ModalRef.current?.Open}>
 						<FontAwesomeIcon icon={faPenToSquare} />
 					</ActionButton>
 					<ActionDivider />
@@ -104,7 +104,7 @@ const Card: FC<Props> = ({ user }) => {
 					</ActionButton>
 				</Actions>
 			</Container>
-			<Modal user={user} ref={ModalRef} />
+			<Modal user={user} ref={ModalRef as RefObject<ICardModalHandle>} />
 		</>
 	)
 }

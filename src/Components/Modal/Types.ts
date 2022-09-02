@@ -18,8 +18,8 @@ export interface IModalContent {
 
 export interface IModalProps {
 	wrapperId: string
-	containerProps: IModalContainer
-	contentProps: IModalContent
+	containerProps?: Partial<IModalContainer>
+	contentProps?: Partial<IModalContent>
 	children: ReactNode
 }
 

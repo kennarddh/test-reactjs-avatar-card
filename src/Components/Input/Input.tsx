@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
-import { IInput } from './Types'
-
-const Input = styled.input<IInput>`
+const Input = styled.input`
 	width: ${({ width }) => (typeof width === 'number' ? `${width}px` : width)};
 
 	height: ${({ height }) =>

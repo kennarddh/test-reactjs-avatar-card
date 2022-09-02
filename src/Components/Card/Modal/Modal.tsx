@@ -5,27 +5,27 @@ import React, {
 	useRef,
 	useState,
 	useContext,
-	FC,
+	useImperativeHandle,
 } from 'react'
 
-import ModalComponent from '@/Components/Modal/Modal'
+import ModalComponent, { IModalHandle } from '@/Components/Modal/Modal'
 import Input from '@/Components/Input/Input'
 
-import UsersContext from '@/Contexts/Users'
+import UsersContext, { IUsersContext } from '@/Contexts/Users/Users'
 
 import { Button } from './Styles'
 
-import { Props } from './Types'
+import { Props, IClose, ICardModalHandle } from './Types'
 
-const Modal: FC<Props> = ({ user }, ref) => {
-	const { SetUsers } = useContext(UsersContext)
+const Modal = forwardRef<ICardModalHandle, Props>(({ user }, ref) => {
+	const { SetUsers } = useContext<IUsersContext>(UsersContext)
 
-	const ModalComponentRef = useRef()
+	const ModalComponentRef = useRef<IModalHandle | null>()
 
-	const [Email, SetEmail] = useState('')
-	const [Phone, SetPhone] = useState('')
-	const [Website, SetWebsite] = useState('')
-	const [Username, SetUsername] = useState('')
+	const [Email, SetEmail] = useState<string>('')
+	const [Phone, SetPhone] = useState<string>('')
+	const [Website, SetWebsite] = useState<string>('')
+	const [Username, SetUsername] = useState<string>('')
 
 	useEffect(() => {
 		SetEmail(user.email)
@@ -34,7 +34,13 @@ const Modal: FC<Props> = ({ user }, ref) => {
 		SetUsername(user.username)
 	}, [user.email, user.phone, user.website, user.username])
 
-	const Close = useCallback(
+	useImperativeHandle(ref, () => ({
+		Open() {
+			ModalComponentRef.current?.Open()
+		},
+	}))
+
+	const Close = useCallback<IClose>(
 		event => {
 			event.stopPropagation()
 
@@ -64,10 +70,6 @@ const Modal: FC<Props> = ({ user }, ref) => {
 			wrapperId={`user_${user.id}`}
 			ref={modalRef => {
 				ModalComponentRef.current = modalRef
-
-				ref.current = {
-					Open: modalRef?.Open,
-				}
 			}}
 			contentProps={{
 				width: '50%',
@@ -101,6 +103,10 @@ const Modal: FC<Props> = ({ user }, ref) => {
 			<Button onClick={Close}>Close</Button>
 		</ModalComponent>
 	)
-}
+})
 
-export default forwardRef(Modal)
+Modal.displayName = 'CardModal'
+
+export type { ICardModalHandle }
+
+export default Modal
