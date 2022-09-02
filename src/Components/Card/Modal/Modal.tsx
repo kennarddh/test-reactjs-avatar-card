@@ -11,7 +11,7 @@ import React, {
 import ModalComponent, { IModalHandle } from 'Components/Modal/Modal'
 import Input from 'Components/Input/Input'
 
-import UsersContext, { IUsersContext } from 'Contexts/Users/Users'
+import UsersContext, { IUsersContext, IUser } from 'Contexts/Users/Users'
 
 import { Button } from './Styles'
 
@@ -44,8 +44,8 @@ const Modal = forwardRef<ICardModalHandle, Props>(({ user }, ref) => {
 		event => {
 			event.stopPropagation()
 
-			SetUsers(prev =>
-				prev.map(item => {
+			SetUsers((prev: IUser[]) =>
+				prev.map((item: IUser) => {
 					if (item.id === user.id) {
 						return {
 							...item,
@@ -62,7 +62,7 @@ const Modal = forwardRef<ICardModalHandle, Props>(({ user }, ref) => {
 
 			ModalComponentRef.current?.Close()
 		},
-		[Email, Phone, SetUsers, Username, Website, user.id]
+		[Email, Phone, Username, Website, user.id]
 	)
 
 	return (
