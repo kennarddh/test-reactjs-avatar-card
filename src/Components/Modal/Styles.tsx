@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-export const ModalContainer = styled.div`
+import { IModalContent, IModalContainer } from './Types'
+
+export const ModalContainer = styled.div<IModalContainer>`
 	background-color: ${({ backgroundColor }) => backgroundColor};
 
 	position: absolute;
@@ -18,12 +20,11 @@ ModalContainer.defaultProps = {
 	backgroundColor: '#b4b4b4a4',
 }
 
-export const ModalContent = styled.div`
-	width: ${({ width }) =>
-		typeof padding === 'number' ? `${width}px` : width};
+export const ModalContent = styled.div<IModalContent>`
+	width: ${({ width }) => (typeof width === 'number' ? `${width}px` : width)};
 
 	height: ${({ height }) =>
-		typeof padding === 'number' ? `${height}px` : height};
+		typeof height === 'number' ? `${height}px` : height};
 
 	background-color: ${({ backgroundColor }) => backgroundColor};
 
