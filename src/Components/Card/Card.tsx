@@ -89,7 +89,10 @@ const Card: FC<Props> = ({ user }) => {
 					</BodyText>
 				</Body>
 				<Actions>
-					<ActionButton onClick={ToggleLike}>
+					<ActionButton
+						onClick={ToggleLike}
+						aria-label={user.isLiked ? 'Cancel like' : 'Like'}
+					>
 						<FontAwesomeIcon
 							icon={user.isLiked ? faSolidHeart : faHeart}
 							color='#ff0000'
@@ -100,11 +103,12 @@ const Card: FC<Props> = ({ user }) => {
 						onClick={() => {
 							if (ModalRef.current?.Open) ModalRef.current?.Open()
 						}}
+						aria-label='Edit'
 					>
 						<FontAwesomeIcon icon={faPenToSquare} />
 					</ActionButton>
 					<ActionDivider />
-					<ActionButton onClick={Remove}>
+					<ActionButton onClick={Remove} aria-label='Remove avatar'>
 						<FontAwesomeIcon icon={faTrash} />
 					</ActionButton>
 				</Actions>

@@ -33,7 +33,7 @@ export const Name = styled.h3`
 `
 
 export const BodyText = styled.p`
-	color: #7e7e7e;
+	color: #505050;
 
 	word-break: break-all;
 `
