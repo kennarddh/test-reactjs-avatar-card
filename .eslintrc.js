@@ -72,6 +72,8 @@ module.exports = {
 			{
 				js: 'never',
 				jsx: 'never',
+				ts: 'never',
+				tsx: 'never',
 			},
 		],
 		'react/jsx-filename-extension': [
