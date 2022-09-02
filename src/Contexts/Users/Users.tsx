@@ -1,11 +1,6 @@
 import React, { createContext, useState, useEffect, FC } from 'react'
 
-import {
-	IApiResponseData,
-	IUsersProvider,
-	IUsersContext,
-	IUser,
-} from '@/Contexts/Users/UsersTypes'
+import { IApiResponseData, IUsersProvider, IUsersContext, IUser } from './Types'
 
 const UsersContext = createContext<IUsersContext>({
 	Users: [],
