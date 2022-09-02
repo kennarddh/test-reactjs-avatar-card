@@ -6,9 +6,9 @@ import App from './App'
 
 import '@/index.css'
 
-import { UsersProvider } from '@/Contexts/Users'
+import { UsersProvider } from '@/Contexts/Users/Users'
 
-const root = ReactDOM.createRoot(document.getElementById('root'))
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
 	<React.StrictMode>
