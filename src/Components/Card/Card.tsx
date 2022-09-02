@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext, useRef, FC } from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -13,7 +13,7 @@ import {
 	faHeart as faSolidHeart,
 } from '@fortawesome/free-solid-svg-icons'
 
-import UsersContext from '@/Contexts/Users'
+import UsersContext, { IUser, IUsersContext } from '@/Contexts/Users/Users'
 
 import Modal from '@/Components/Card/Modal/Modal'
 
@@ -29,14 +29,16 @@ import {
 	BodyIcon,
 } from './Styles'
 
-const Card = ({ user }) => {
-	const { SetUsers } = useContext(UsersContext)
+import { Props, IToggleLike, IRemove } from './Types'
+
+const Card: FC<Props> = ({ user }) => {
+	const { SetUsers } = useContext<IUsersContext>(UsersContext)
 
 	const ModalRef = useRef()
 
-	const ToggleLike = () => {
-		SetUsers(prev =>
-			prev.map(item => {
+	const ToggleLike: IToggleLike = () => {
+		SetUsers((prev: IUser[]) =>
+			prev.map((item: IUser) => {
 				if (item.id === user.id) {
 					return { ...item, isLiked: !item.isLiked }
 				}
@@ -46,12 +48,16 @@ const Card = ({ user }) => {
 		)
 	}
 
-	const Remove = () => {
-		const confirmation = confirm(`Are you sure to delete ${user.username}`)
+	const Remove: IRemove = () => {
+		const confirmation: boolean = confirm(
+			`Are you sure to delete ${user.username}`
+		)
 
 		if (!confirmation) return
 
-		SetUsers(prev => prev.filter(item => item.id !== user.id))
+		SetUsers((prev: IUser[]) =>
+			prev.filter((item: IUser) => item.id !== user.id)
+		)
 	}
 
 	return (

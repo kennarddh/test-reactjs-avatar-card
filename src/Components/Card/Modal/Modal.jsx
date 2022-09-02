@@ -5,6 +5,7 @@ import React, {
 	useRef,
 	useState,
 	useContext,
+	FC,
 } from 'react'
 
 import ModalComponent from '@/Components/Modal/Modal'
@@ -14,7 +15,9 @@ import UsersContext from '@/Contexts/Users'
 
 import { Button } from './Styles'
 
-const Modal = ({ user }, ref) => {
+import { Props } from './Types'
+
+const Modal: FC<Props> = ({ user }, ref) => {
 	const { SetUsers } = useContext(UsersContext)
 
 	const ModalComponentRef = useRef()
