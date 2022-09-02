@@ -1,6 +1,6 @@
 import React, { forwardRef, useImperativeHandle, useState } from 'react'
 
-import ReactPortal from '@/Components/ReactPortal/ReactPortal'
+import ReactPortal from 'Components/ReactPortal/ReactPortal'
 
 import { ModalContainer, ModalContent } from './Styles'
 

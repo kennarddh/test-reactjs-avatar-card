@@ -8,10 +8,10 @@ import React, {
 	useImperativeHandle,
 } from 'react'
 
-import ModalComponent, { IModalHandle } from '@/Components/Modal/Modal'
-import Input from '@/Components/Input/Input'
+import ModalComponent, { IModalHandle } from 'Components/Modal/Modal'
+import Input from 'Components/Input/Input'
 
-import UsersContext, { IUsersContext } from '@/Contexts/Users/Users'
+import UsersContext, { IUsersContext } from 'Contexts/Users/Users'
 
 import { Button } from './Styles'
 

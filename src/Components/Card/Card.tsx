@@ -13,9 +13,9 @@ import {
 	faHeart as faSolidHeart,
 } from '@fortawesome/free-solid-svg-icons'
 
-import UsersContext, { IUser, IUsersContext } from '@/Contexts/Users/Users'
+import UsersContext, { IUser, IUsersContext } from 'Contexts/Users/Users'
 
-import Modal, { ICardModalHandle } from '@/Components/Card/Modal/Modal'
+import Modal, { ICardModalHandle } from 'Components/Card/Modal/Modal'
 
 import {
 	Container,

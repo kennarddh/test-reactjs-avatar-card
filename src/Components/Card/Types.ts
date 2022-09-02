@@ -1,4 +1,4 @@
-import { IUser } from '@/Contexts/Users/Users'
+import { IUser } from 'Contexts/Users/Users'
 
 export interface Props {
 	user: IUser
