@@ -36,7 +36,6 @@ const Modal = forwardRef<ICardModalHandle, Props>(({ user }, ref) => {
 
 	useImperativeHandle(ref, () => ({
 		Open() {
-			console.log('Open')
 			ModalComponentRef.current?.Open()
 		},
 	}))
