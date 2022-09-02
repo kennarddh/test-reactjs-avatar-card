@@ -62,7 +62,7 @@ const Modal = forwardRef<ICardModalHandle, Props>(({ user }, ref) => {
 
 			ModalComponentRef.current?.Close()
 		},
-		[Email, Phone, Username, Website, user.id]
+		[Email, Phone, SetUsers, Username, Website, user.id]
 	)
 
 	return (
