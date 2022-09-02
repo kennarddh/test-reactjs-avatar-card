@@ -68,7 +68,7 @@ const Card = ({ user }) => {
 						</BodyIcon>
 						{user.email}
 					</BodyText>
-					<BodyText>
+					<BodyText as='a' href={`tel:${user.email}`}>
 						<BodyIcon>
 							<FontAwesomeIcon icon={faPhone} />
 						</BodyIcon>
