@@ -31,15 +31,15 @@ module.exports = {
 		sourceType: 'module',
 	},
 	settings: {
-		'import/extensions': ['.js', '.jsx'],
+		'import/extensions': ['.js', '.jsx', 'ts', 'tsx'],
 		'import/resolver': {
 			node: {
-				extensions: ['.js', '.jsx'],
+				extensions: ['.js', '.jsx', 'ts', 'tsx'],
 				moduleDirectory: ['node_modules', 'src/'],
 			},
 			alias: {
 				map: [['.', './src']],
-				extensions: ['.js', '.jsx'],
+				extensions: ['.js', '.jsx', 'ts', 'tsx'],
 			},
 		},
 		react: {
@@ -73,6 +73,10 @@ module.exports = {
 				js: 'never',
 				jsx: 'never',
 			},
+		],
+		'react/jsx-filename-extension': [
+			2,
+			{ extensions: ['.js', '.jsx', '.ts', '.tsx'] },
 		],
 	},
 }
