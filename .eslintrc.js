@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-undef
 module.exports = {
+	parser: '@typescript-eslint/parser',
 	env: {
 		browser: true,
 		es2021: true,
@@ -18,8 +19,10 @@ module.exports = {
 		'plugin:jest/all',
 		'plugin:json/recommended',
 		'plugin:security/recommended',
+		'plugin:@typescript-eslint/eslint-recommended',
+		'plugin:@typescript-eslint/recommended',
 	],
-	plugins: ['react', 'prettier', 'jsx-a11y', 'jest'],
+	plugins: ['react', 'prettier', 'jsx-a11y', 'jest', '@typescript-eslint'],
 	parserOptions: {
 		ecmaFeatures: {
 			jsx: true,
