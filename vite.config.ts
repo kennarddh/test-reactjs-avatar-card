@@ -11,7 +11,9 @@ import { resolve } from 'path'
 export default ({ mode }) => {
 	const envPrefix = ['APP_']
 
-	const { PORT, OPEN_BROWSER } = { ...loadEnv(mode, process.cwd(), '') }
+	const { PORT = 3000, OPEN_BROWSER = 'true' } = {
+		...loadEnv(mode, process.cwd(), ''),
+	}
 
 	const appEnv = loadEnv(mode, process.cwd(), envPrefix)
 
@@ -23,8 +25,8 @@ export default ({ mode }) => {
 			},
 		},
 		server: {
-			port: PORT || 3000,
-			open: OPEN_BROWSER === 'true' ? true : false,
+			port: PORT,
+			open: !!OPEN_BROWSER,
 		},
 		envPrefix,
 		build: {
