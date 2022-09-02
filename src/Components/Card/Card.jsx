@@ -62,7 +62,7 @@ const Card = ({ user }) => {
 				/>
 				<Body>
 					<Name>{user.username}</Name>
-					<BodyText>
+					<BodyText as='a' href={`mailto:${user.email}`}>
 						<BodyIcon>
 							<FontAwesomeIcon icon={faEnvelope} />
 						</BodyIcon>
