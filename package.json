@@ -12,7 +12,7 @@
 		"prettier:fix": "prettier -w \"src/**/*.{js,jsx,json,md}\" \"*.md\"",
 		"prettier:check": "prettier -c \"src/**/*.{js,jsx,json,md}\" \"*.md\"",
 		"clean": "rimraf build",
-		"test": "jest--passWithNoTests",
+		"test": "jest",
 		"test:watch": "jest --watch",
 		"test:watch:all": "jest --watchAll",
 		"test:coverage": "jest --coverage",
