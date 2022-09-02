@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 
 import Card from '@/Components/Card/Card'
 
@@ -7,22 +7,7 @@ import UsersContext from '@/Contexts/Users'
 import { Cards } from '@/Styles'
 
 const App = () => {
-	const { Users, SetUsers } = useContext(UsersContext)
-
-	useEffect(() => {
-		const controller = new AbortController()
-
-		const signal = controller.signal
-
-		fetch('https://jsonplaceholder.typicode.com/users', { signal })
-			.then(response => response.json())
-			.then(data =>
-				SetUsers(data.map(item => ({ ...item, isLiked: false })))
-			)
-			.catch(console.log)
-
-		return () => controller.abort()
-	}, [SetUsers])
+	const { Users } = useContext(UsersContext)
 
 	return (
 		<Cards>
