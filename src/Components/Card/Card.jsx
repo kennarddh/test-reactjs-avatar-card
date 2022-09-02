@@ -74,7 +74,7 @@ const Card = ({ user }) => {
 						</BodyIcon>
 						{user.phone}
 					</BodyText>
-					<BodyText>
+					<BodyText as='a' href={`//${user.website}`}>
 						<BodyIcon>
 							<FontAwesomeIcon icon={faGlobe} />
 						</BodyIcon>
