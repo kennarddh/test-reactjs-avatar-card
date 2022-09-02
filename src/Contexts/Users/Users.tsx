@@ -4,7 +4,7 @@ import {
 	IApiResponseData,
 	IUsersProvider,
 	IUsersContext,
-	IUsers,
+	IUser,
 } from '@/Contexts/Users/UsersTypes'
 
 const UsersContext = createContext<IUsersContext>({
@@ -12,7 +12,7 @@ const UsersContext = createContext<IUsersContext>({
 })
 
 export const UsersProvider: FC<IUsersProvider> = ({ children }) => {
-	const [Users, SetUsers] = useState<IUsers[]>([])
+	const [Users, SetUsers] = useState<IUser[]>([])
 
 	useEffect(() => {
 		const controller: AbortController = new AbortController()
@@ -41,6 +41,6 @@ export const UsersProvider: FC<IUsersProvider> = ({ children }) => {
 	)
 }
 
-export type { IApiResponseData, IUsersProvider, IUsersContext, IUsers }
+export type { IApiResponseData, IUsersProvider, IUsersContext, IUser }
 
 export default UsersContext

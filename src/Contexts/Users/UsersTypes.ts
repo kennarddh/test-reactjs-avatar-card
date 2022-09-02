@@ -24,13 +24,13 @@ export interface IApiResponseData {
 	}
 }
 
-export interface IUsers extends IApiResponseData {
+export interface IUser extends IApiResponseData {
 	isLiked: boolean
 }
 
 export interface IUsersContext {
-	Users: IUsers[]
-	SetUsers?: Dispatch<SetStateAction<IUsers[]>>
+	Users: IUser[]
+	SetUsers?: Dispatch<SetStateAction<IUser[]>>
 }
 
 export interface IUsersProvider {
