@@ -30,7 +30,7 @@ export interface IUser extends IApiResponseData {
 
 export interface IUsersContext {
 	Users: IUser[]
-	SetUsers?: Dispatch<SetStateAction<IUser[]>>
+	SetUsers: Dispatch<SetStateAction<IUser[]>>
 }
 
 export interface IUsersProvider {

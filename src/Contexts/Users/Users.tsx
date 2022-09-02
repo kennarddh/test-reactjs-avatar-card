@@ -9,6 +9,7 @@ import {
 
 const UsersContext = createContext<IUsersContext>({
 	Users: [],
+	SetUsers: () => {}, // eslint-disable-line @typescript-eslint/no-empty-function
 })
 
 export const UsersProvider: FC<IUsersProvider> = ({ children }) => {
