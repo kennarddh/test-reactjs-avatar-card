@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { IModalContent, IModalContainer } from './Types'
 
-export const ModalContainer = styled.div<IModalContainer>`
+export const ModalContainer = styled.div<Partial<IModalContainer>>`
 	background-color: ${({ backgroundColor }) => backgroundColor};
 
 	position: absolute;
@@ -20,7 +20,7 @@ ModalContainer.defaultProps = {
 	backgroundColor: '#b4b4b4a4',
 }
 
-export const ModalContent = styled.div<IModalContent>`
+export const ModalContent = styled.div<Partial<IModalContent>>`
 	width: ${({ width }) => (typeof width === 'number' ? `${width}px` : width)};
 
 	height: ${({ height }) =>
